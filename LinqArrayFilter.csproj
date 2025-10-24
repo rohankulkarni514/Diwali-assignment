@@ -1,0 +1,32 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+class LinqArrayFilter
+{
+    static void Main()
+    {
+        int [] IntArray = {12, 5, 24, 10, 9, 8, 4, 87, 23, 7, 11, 43};
+
+        var numbersBelow20Query = from n in IntArray
+                                   where n < 20
+                                   select n;
+
+        var numbersBelow20Method = IntArray.Where(n => n < 20);
+
+        Console.WriteLine("Original Array: " + string.Join(", ", IntArray));
+        Console.WriteLine("\nNumbers Below 20 (Query Syntax):");
+        
+        foreach (var number in numbersBelow20Query)
+        {
+            Console.WriteLine(number);
+        }
+        
+        Console.WriteLine("\nNumbers Below 20 (Method Syntax):");
+
+        foreach (var number in numbersBelow20Method)
+        {
+            Console.WriteLine(number);
+        }
+    }
+}
